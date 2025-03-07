@@ -1,7 +1,7 @@
 #api_gateway_task_1_module key.tf
 
 #Create the key for API Gateway task 1
-resource "aws_apigateway_api_key" "pi_side_smart_home_task_1_api_key"{
+resource "aws_api_gateway_api_key" "pi_side_smart_home_task_1_api_key"{
     name = "pi_side_smart_home_task_1_api_key"
     description = "API Key for the task 1 API Gateway"
     enabled = true
