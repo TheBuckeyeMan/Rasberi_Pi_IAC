@@ -16,6 +16,7 @@ Repository to host all of the required IAC including Raspberri_pi Side cloud arc
 Dynamo DB needs permissions to allow lambda to read and write from it
 Lambda to read and write for the Dynamo DB
 Lambda to be event based trigger from api gateway, needs permissions.
+Lambda to have permission to pull from ECR
 API Gateway needs permissions to trigger lambda
 API GAteway needs a static API Key to authenticate with it to prevent NON Pi Users form putting their Serial Number on the database
 
@@ -24,6 +25,7 @@ Dynamo DB needs permissions to allow lambda to read and write form it
 AWS IoT Cert Issuer needs permissions to allow lambda to make a request to the template and return the required certificates for authentication with the topic
 Cert issuer needs permission to allow lambda to talk to it(If required)
 Lambda need spermission for API Gateway to send a message to it
+Lambda to have permission to pull from ECR
 API Gateway needs permissions to trigger lambda
 API Gateway needs a static API Key to authenticate with it to prevent NON Pi Users from getting a certificate thats associated with the IoT Core
 Raspberry Pi Needs permissions to assume the IAM Role for the temporaty acess keys to then talk to api gateway

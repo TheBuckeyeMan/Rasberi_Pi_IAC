@@ -11,7 +11,7 @@ resource "aws_iam_role" "pi_side_lambda_task_1_role" {
   })
 
   tags = {
-    Name = "pi_side_lambda_task_role"
+    Name = "pi_side_lambda_task_1_role"
   }
 }
 
