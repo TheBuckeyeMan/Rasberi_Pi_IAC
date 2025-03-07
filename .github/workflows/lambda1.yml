@@ -1,5 +1,5 @@
 # Pipeline for the provisioning of the Task 1 Lambda Function
-name: Lambda TAsk 1 Deploy
+name: Lambda Task 1 Deploy
 
 on:
   workflow_dispatch:
