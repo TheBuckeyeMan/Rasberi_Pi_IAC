@@ -3,7 +3,7 @@ terraform {
   cloud {
     organization = "1220-IAC"
     workspaces {
-      name = "SmartHome-PI-IOT_FLEET"
+      name = "SmartHome-PI-LAMBDA-TASK-1"
     }
   }
 }
