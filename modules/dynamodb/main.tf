@@ -21,7 +21,7 @@ resource "aws_dynamodb_table" "pi_side_smart_home_pi_devices_serial_numbers" {
 
     attribute {
         name = "timestamp"
-        type = "S"
+        type = "N"
     }
 
     tags = {
