@@ -31,3 +31,16 @@ Raspberry Pi Needs permissions to assume the IAM Role for the temporaty acess ke
 # Pi Use and Authentication
 Pi needs to beable to use certificates provided and other credentials provided via the Task 2 to Successfully authenticate with AWS IoT Topics, read from them, write to them, etc
 
+
+
+# About the Resources
+
+# DynamoDb
+## Creating A Dynamo DB
+Creating a dynamoDb is simple and easy. We do not need to attach any IAM policies to the table itself, IAM policies are only required on the requestor side(Application looking to get data)
+Additionally, we do NOT NEED to provision a DATABASE OR SCHEMA since its a Non SQL based database
+Primary Key is required(Hash_Key)
+"S" = String
+"N" = Number
+"B" = Binary
+
