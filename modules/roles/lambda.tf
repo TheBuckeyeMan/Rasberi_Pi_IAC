@@ -1,5 +1,5 @@
 resource "aws_iam_role" "pi_side_lambda_task_1_role" {
-    name = "pi_side_lambda_task_role"
+    name = "pi_side_lambda_task_1_role"
     
     assume_role_policy = jsonencode({
     Version = "2012-10-17"
