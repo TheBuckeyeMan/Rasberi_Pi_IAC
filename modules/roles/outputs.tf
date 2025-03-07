@@ -6,7 +6,7 @@ output "smart_home_dynamo_db_access_role_arn"{
     value = aws_iam_role.smart_home_pi_side_dymano_db_access_role.arn
 }
 
-output "smart_home_dynamo_db_access_role_id"{
+output "smart_home_dynamo_db_access_role_name"{
     value = aws_iam_role.smart_home_pi_side_dymano_db_access_role.name
 }
 
