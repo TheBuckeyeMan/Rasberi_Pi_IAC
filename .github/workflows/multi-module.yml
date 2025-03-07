@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       module:
-        description: 'Select the IaC module to deploy [roles, dynamodb]'
+        description: 'Select the IaC module to deploy [roles, dynamodb, iot_fleet]'
         required: true
         type: string
       environment:
@@ -43,6 +43,7 @@ jobs:
         case "${{ github.event.inputs.module }}" in
         roles) echo "module_path=modules/roles" >> $GITHUB_ENV ;;
         dynamodb) echo "module_path=modules/dynamodb" >> $GITHUB_ENV ;;
+        iot_fleet) echo "module_path=modules/iot_fleet" >> $GITHUB_ENV ;;
         *) echo "Invalid module selected"; exit 1 ;;
         esac
 
