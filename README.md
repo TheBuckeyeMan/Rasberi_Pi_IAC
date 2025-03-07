@@ -4,11 +4,11 @@ Repository to host all of the required IAC including Raspberri_pi Side cloud arc
 # Raspberry Pi IAC Repo Deployment Order
 1. Roles 
 2. Dynamo DB
----- Lambda for task 1 need deployed in seporate repo ------
 3. API Gateway Task 1
-4. iot_fleet
----- Lambda for task 2 need deployed in seporate repo ------
-5. API Gateway Task 2
+4. Lambda for task 1
+5. iot_fleet
+6. API Gateway Task 2
+7. Lambda for task 2 
 
 
 **Lambda Roles/Policies to be hosted in a seporate IAC Repo for each Lambda
