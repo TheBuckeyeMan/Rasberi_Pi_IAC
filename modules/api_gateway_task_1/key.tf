@@ -12,7 +12,7 @@ resource "aws_api_gateway_api_key" "pi_side_smart_home_task_1_api_key"{
 }
 
 # Attach API Key to a Usage Plan
-resource "aws_apigateway_usage_plan" "pi_side_smart_home_api_gateway_task_1_usage_plan"{
+resource "aws_api_gateway_usage_plan" "pi_side_smart_home_api_gateway_task_1_usage_plan"{
     name = "pi_side_smart_home_api_gateway_task_1_usage_plan"
     description = "Usage Plan for the task 1 API Gateway"
     
