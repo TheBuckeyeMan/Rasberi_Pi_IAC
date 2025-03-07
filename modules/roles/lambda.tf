@@ -24,7 +24,7 @@ resource "aws_iam_policy" "pi_side_lambda_task_1_policy"{
         Statement = [{
         Effect   = "Allow"
         Action   = ["dynamodb:PutItem"]
-        Resource = "arn:aws:dynamodb:us-east-2:YOUR_ACCOUNT_ID:table/smart_home_pi_devices_serial_numbers"
+        Resource = "arn:aws:dynamodb:us-east-2:339712758982:table/smart_home_pi_devices_serial_numbers"
         }]
     })
 
