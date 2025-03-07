@@ -14,3 +14,8 @@ variable "region" {
     type = string
     default = "us-east-2"
 }
+
+variable "SERIAL_NUMBER_DYNAMO_DB"{
+    description = "The Name of the Serial Number Dynamo DB Table"
+    type = string
+}
