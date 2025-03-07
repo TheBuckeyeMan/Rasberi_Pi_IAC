@@ -33,7 +33,7 @@ resource "aws_apigateway_usage_plan" "pi_side_smart_home_api_gateway_task_1_usag
 
 
 #Link API Key to the Usage Plan
-resource "aws_apigateway_usage_plan_key" "pi_side_smart_home_api_gateway_task_1_key_usage" {
+resource "aws_api_gateway_usage_plan_key" "pi_side_smart_home_api_gateway_task_1_key_usage" {
     usage_plan_id = aws_apigateway_usage_plan.pi_side_smart_home_api_gateway_task_1_usage_plan.id
     key_id = aws_apigateway_api_key.pi_side_smart_home_task_1_api_key.id
     key_type = "API_KEY"
