@@ -6,10 +6,11 @@ Repository to host all of the required IAC including Raspberri_pi Side cloud arc
 2. Dynamo DB
 3. API Gateway Task 1
 4. Lambda for task 1
-5. iot_fleet
-6. API Gateway Task 2
-7. Lambda for task 2 
-
+5. API Gateway lambda Integration Task 1
+6. iot_fleet
+7. API Gateway Task 2
+8. Lambda for task 2 
+9. API Gateway lambda Integration Task 2
 
 **Lambda Roles/Policies to be hosted in a seporate IAC Repo for each Lambda
 # IAM Permissions - Task 1
@@ -46,3 +47,11 @@ Primary Key is required(Hash_Key)
 "N" = Number
 "B" = Binary
 
+
+
+# Next steps
+1. Fix the api gateway - might simply be a needs a "depends on" tag
+2. Finish Lambda IAC
+3. Finish Lambda CD 
+4.  Make Lambda function
+5. Try to deploy lambda funciton
