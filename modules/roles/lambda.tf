@@ -21,11 +21,29 @@ resource "aws_iam_policy" "pi_side_lambda_task_1_policy"{
 
     policy = jsonencode({
         Version = "2012-10-17"
-        Statement = [{
-        Effect   = "Allow"
-        Action   = ["dynamodb:PutItem"]
-        Resource = "arn:aws:dynamodb:us-east-2:339712758982:table/smart_home_pi_devices_serial_numbers"
-        }]
+        Statement = [
+        {
+            Effect   = "Allow"
+            Action   = ["dynamodb:PutItem"]
+            Resource = "arn:aws:dynamodb:us-east-2:339712758982:table/smart_home_pi_devices_serial_numbers"
+        },
+        {
+            Effect = "Allow"
+            Action = [
+                "ecr:GetAuthorizationToken"
+            ]
+            Resource = "*"
+        },
+        {
+            Effect = "Allow"
+            Action = [
+                "ecr:BatchCheckLayerAvailability",
+                "ecr:GetDownloadUrlForLayer",
+                "ecr:BatchGetImage"
+            ]
+            Resource = "arn:aws:ecr:us-east-2:339712758982:repository/smart-home"
+        }
+        ]
     })
 
     tags = {
