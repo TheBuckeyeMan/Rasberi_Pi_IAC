@@ -130,15 +130,3 @@ output "pi_side_lambda_task_1_role_arn"{
 output "pi_side_lambda_task_1_role_name"{
     value = aws_iam_role.pi_side_lambda_task_1_role.name
 }
-
-output "pi_side_lambda_task_1_policy_id"{
-    value = aws_iam_policy.pi_side_lambda_task_1_policy.id
-}
-
-output "pi_side_lambda_task_1_policy_arn"{
-    value = aws_iam_policy.pi_side_lambda_task_1_policy.arn
-}
-
-output "pi_side_lambda_task_1_policy_name"{
-    value = aws_iam_policy.pi_side_lambda_task_1_policy.name
-}
