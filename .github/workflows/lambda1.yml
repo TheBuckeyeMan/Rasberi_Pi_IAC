@@ -29,8 +29,8 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
-        working-directory: terraform
+        working-directory: modules/lambda_task_1
 
       - name: Terraform Apply
         run: terraform apply -auto-approve -var="aws_access_key=${{ secrets.AWS_ACCESS_KEY_ID }}" -var="aws_secret_key=${{ secrets.AWS_SECRET_ACCESS_KEY }}" -var="SERIAL_NUMBER_DYNAMO_DB=${{ secrets.SERIAL_NUMBER_DYNAMO_DB }}"
-        working-directory: terraform
+        working-directory: modules/lambda_task_1

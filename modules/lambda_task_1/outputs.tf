@@ -37,3 +37,4 @@ output "pi_side_smart_home_lambda_task_1_allow_api_gateway_associated_lambda_fun
 output "pi_side_smart_home_lambda_task_1_allow_api_gateway_principal"{
     value = aws_lambda_permission.pi_side_smart_home_allow_api_gateway.principal
 }
+
