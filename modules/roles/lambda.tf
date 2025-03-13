@@ -1,3 +1,4 @@
+#Role for Task 1 Lambda
 resource "aws_iam_role" "pi_side_lambda_task_1_role" {
     name = "pi_side_lambda_task_1_role"
     
@@ -54,4 +55,72 @@ resource "aws_iam_policy" "pi_side_lambda_task_1_policy"{
 resource "aws_iam_role_policy_attachment" "pi_side_lambda_task_1_policy_attachment" {
     role = aws_iam_role.pi_side_lambda_task_1_role.name
     policy_arn = aws_iam_policy.pi_side_lambda_task_1_policy.arn
+}
+
+
+//Role for Task 2 Lambda
+resource "aws_iam_role" "pi_side_lambda_task_2_role" {
+    name = "pi_side_lambda_task_2_role"
+    
+    assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [{
+        Effect = "Allow"
+        Principal = { Service = "lambda.amazonaws.com" }
+        Action = "sts:AssumeRole"
+        }]
+    })
+
+  tags = {
+    Name = "pi_side_lambda_task_2_role"
+  }
+}
+
+resource "aws_iam_policy" "pi_side_lambda_task_2_policy"{
+    name = "pi_side_lambda_task_2_policy"
+    description = "Allows Lambda to read Serial Numbers to DynamoDB, and give access to IoT Template"
+
+    policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+
+        # Allow Lambda to receive traffic from API Gateway
+        {
+            Effect = "Allow"
+            Action = ["execute-api:Invoke"]
+            Resource = "*" # Replace with API Gateway ARN once deployed
+        },
+
+        # Allow Lambda to read from the DynamoDB table
+        {
+            Effect = "Allow"
+            Action = [
+            "dynamodb:GetItem",
+            "dynamodb:Scan",
+            "dynamodb:Query"
+            ]
+            Resource = "arn:aws:dynamodb:us-east-2:339712758982:table/smart_home_pi_devices_serial_numbers"
+        },
+
+        # Allow Lambda to interact with IoT Core to issue new credentials
+        {
+            Effect = "Allow"
+            Action = [
+            "iot:DescribeProvisioningTemplate",
+            "iot:CreateProvisioningClaim",
+            "iot:ListProvisioningTemplates"
+            ]
+            Resource = "arn:aws:iot:us-east-2:339712758982:provisioningtemplate/YOUR_TEMPLATE_NAME" #TODO Add required Template Name once Provisioned
+        }
+        ]
+    })
+
+    tags = {
+        Name = "pi_side_lambda_task_2_policy"
+    }
+}
+
+resource "aws_iam_role_policy_attachment" "pi_side_lambda_task_2_policy_attachment" {
+    role = aws_iam_role.pi_side_lambda_task_2_role.name
+    policy_arn = aws_iam_policy.pi_side_lambda_task_2_policy.arn
 }
