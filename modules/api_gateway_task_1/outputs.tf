@@ -90,3 +90,23 @@ output "pi_side_smart_home_task_1_api_gateway_deployment_id"{
 output "pi_side_smart_home_task_1_api_gateway_deployment_description"{
     value = aws_api_gateway_deployment.pi_side_smart_home_task_1_api_gateway_deployment.description
 }
+
+output "pi_side_smart_home_lambda_task_1_allow_api_gateway_id"{
+    value = aws_lambda_permission.pi_side_smart_home_allow_api_gateway.id
+}
+
+output "pi_side_smart_home_lambda_task_1_allow_api_gateway_statement_id"{
+    value = aws_lambda_permission.pi_side_smart_home_allow_api_gateway.statement_id
+}
+
+output "pi_side_smart_home_lambda_task_1_allow_api_gateway_action"{
+    value = aws_lambda_permission.pi_side_smart_home_allow_api_gateway.action
+}
+
+output "pi_side_smart_home_lambda_task_1_allow_api_gateway_associated_lambda_function"{
+    value = aws_lambda_permission.pi_side_smart_home_allow_api_gateway.function_name
+}
+
+output "pi_side_smart_home_lambda_task_1_allow_api_gateway_principal"{
+    value = aws_lambda_permission.pi_side_smart_home_allow_api_gateway.principal
+}
