@@ -10,6 +10,16 @@ resource "aws_api_gateway_integration" "pi_side_smart_home_task_1_lambda_integra
     uri = data.aws_lambda_function.pi_side_smart_home_task_1_lambda.invoke_arn
 }
 
+#------Allow API Gateway to invoke lambda----------
+resource "aws_lambda_permission" "pi_side_smart_home_allow_api_gateway"{
+    statement_id = "AllowExecutionFromAPIGateway"
+    action = "lambda:InvokeFunction"
+    function_name = data.aws_lambda_function.pi_side_smart_home_task_1_lambda.function_name
+    principal = "apigateway.amazonaws.com"
+    source_arn = "${aws_api_gateway_rest_api.pi_side_smart_home_task_1_api_gateway.execution_arn}/*/*"
+}
+
+
 # #This resoure is what allows api gateway to trigger the lambda function
 # resource "aws_apigatewayv2_integration" "pi_side_smart_home_api_gateway_task_1_lambda_integration"{
 #     api_id = aws_apigatewayv2_api.pi_side_smart_home_task_1_api_gateway.id
