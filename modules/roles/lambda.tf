@@ -43,6 +43,15 @@ resource "aws_iam_policy" "pi_side_lambda_task_1_policy"{
                 "ecr:BatchGetImage"
             ]
             Resource = "arn:aws:ecr:us-east-2:339712758982:repository/smart-home"
+        },
+        {
+            Effect = "Allow"
+            Action = [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ]
+            Resource = "arn:aws:logs:us-east-2:339712758982:*"
         }
         ]
     })
@@ -111,6 +120,15 @@ resource "aws_iam_policy" "pi_side_lambda_task_2_policy"{
             "iot:ListProvisioningTemplates"
             ]
             Resource = "arn:aws:iot:us-east-2:339712758982:provisioningtemplate/YOUR_TEMPLATE_NAME" #TODO Add required Template Name once Provisioned
+        },
+        {
+            Effect = "Allow"
+            Action = [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ]
+            Resource = "arn:aws:logs:us-east-2:339712758982:*"
         }
         ]
     })
