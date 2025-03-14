@@ -29,6 +29,7 @@ resource "aws_lambda_permission" "pi_side_smart_home_allow_api_gateway"{
     action = "lambda:InvokeFunction"
     function_name = aws_lambda_function.pi_side_smart_home_task_1_lambda.function_name
     principal = "apigateway.amazonaws.com"
+    source_arn = "${aws_api_gateway_rest_api.pi_side_smart_home_task_1_api_gateway.execution_arn}/*/*"
 }
 
 
