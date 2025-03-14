@@ -10,6 +10,17 @@ resource "aws_api_gateway_api_key" "pi_side_smart_home_task_1_device_registratio
     }
 }
 
+resource "aws_api_gateway_stage" "prod"{
+    rest_api_id = aws_api_gateway_rest_api.pi_side_smart_home_task_1_api_gateway.id
+    stage_name = "prod"
+    deployment_id = aws_api_gateway_deployment.pi_side_smart_home_task_1_api_gateway_deployment.id
+
+    tags = {
+        Name = "DeviceRegistrationStage"
+    }
+}
+
+
 #Create the usage plan
 resource "aws_api_gateway_usage_plan" "pi_side_smart_home_task_1_api_key_usage_plan" {
     name = "DeviceRegistrationUsagePlan"

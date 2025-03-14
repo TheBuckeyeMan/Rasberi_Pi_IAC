@@ -16,6 +16,10 @@ resource "aws_api_gateway_deployment" "pi_side_smart_home_task_1_api_gateway_dep
     rest_api_id = aws_api_gateway_rest_api.pi_side_smart_home_task_1_api_gateway.id
     description = "This API Gateway Deployment enables automatic deployment for API Gateway Changes"
     depends_on = [aws_api_gateway_integration.pi_side_smart_home_task_1_lambda_integration]
+
+    triggers = {
+      redeployment = sha1(jsonencode(aws_api_gateway_rest_api.pi_side_smart_home_task_1_api_gateway))
+    }
 }
 
 
