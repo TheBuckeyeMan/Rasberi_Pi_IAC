@@ -110,3 +110,15 @@ output "pi_side_smart_home_lambda_task_1_allow_api_gateway_associated_lambda_fun
 output "pi_side_smart_home_lambda_task_1_allow_api_gateway_principal"{
     value = aws_lambda_permission.pi_side_smart_home_allow_api_gateway.principal
 }
+
+output "aws_api_gateway_stage_prod_id"{
+    value = aws_api_gateway_stage.prod.id
+}
+
+output "aws_api_gateway_stage_prod_stage_name"{
+    value = aws_api_gateway_stage.prod.stage_name
+}
+
+output "aws_api_gateway_stage_prod_arn"{
+    value = aws_api_gateway_stage.prod.arn
+}
