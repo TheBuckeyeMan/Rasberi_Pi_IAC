@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       module:
-        description: 'Select the IaC module to deploy [roles, dynamodb, iot_fleet, api_gateway_task_1, api_gateway_task_2, api_gateway_task_1_lambda_integration, api_gateway_task_2_lambda_integration]'
+        description: 'Select the IaC module to deploy [roles, dynamodb, iot_fleet, api_gateway_task_1, api_gateway_task_2]'
         required: true
         type: string
       environment:
@@ -46,8 +46,6 @@ jobs:
         iot_fleet) echo "module_path=modules/iot_fleet" >> $GITHUB_ENV ;;
         api_gateway_task_1) echo "module_path=modules/api_gateway_task_1" >> $GITHUB_ENV ;;
         api_gateway_task_2) echo "module_path=modules/api_gateway_task_2" >> $GITHUB_ENV ;;
-        api_gateway_task_1_lambda_integration) echo "module_path=modules/api_gateway_task_1_lambda_integration" >> $GITHUB_ENV ;;
-        api_gateway_task_2_lambda_integration) echo "module_path=modules/api_gateway_task_2_lambda_integration" >> $GITHUB_ENV ;;
         *) echo "Invalid module selected"; exit 1 ;;
         esac
 
