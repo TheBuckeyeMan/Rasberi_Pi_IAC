@@ -36,7 +36,7 @@ resource "aws_iot_provisioning_template" "pi_side_smart_home_iot_cert_tmp"{
             policy = {
                 Type = "AWS::IoT::Policy"
                 Properties = {
-                    PolicyName = "smart_home_pi_policy"
+                    PolicyName = "pi_side_iot_cert_issuer_role"
                 }
             }
         }
