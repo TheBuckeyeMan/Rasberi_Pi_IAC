@@ -1,4 +1,4 @@
-#api_gateway Module
+#iot_fleet_template Module
 variable "aws_access_key" {
   description = "AWS access key"
   type        = string
