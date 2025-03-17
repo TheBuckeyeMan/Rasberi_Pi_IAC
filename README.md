@@ -53,3 +53,11 @@ Primary Key is required(Hash_Key)
 3. Finish Lambda CD 
 4.  Make Lambda function
 5. Try to deploy lambda funciton
+
+# Raspberri Pi Hardware notes
+
+Worrying about over the wire: Mostly No – If you follow best practices, you should be fine!
+However, a few key things will ensure a smooth setup:
+
+WS2812B LEDs draw a lot of power (e.g., 60 LEDs can need 3A at full brightness).
+If using more than ~30 LEDs, use a separate 5V power adapter for the LED strip instead of powering it from the Raspberry Pi.
