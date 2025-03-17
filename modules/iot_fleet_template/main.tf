@@ -11,15 +11,14 @@ resource "aws_iot_provisioning_template" "pi_side_smart_home_iot_cert_tmp"{
 
     template_body = jsonencode({
         Parameters = {
-        SerialNumber = {
-            Type = "String"
-        }
+            SerialNumber = { Type = "String"}
+            CertificateId = { Type = "String" }
         },
         Resources = {
             certificate = {
                 Type = "AWS::IoT::Certificate", #Makes the Certificate
                 Properties = {
-                    CertificateId = { Ref = "AWS::IoT::Certificate::Id" }
+                    CertificateId = { Ref = "CertificateId" }
                     Status = "ACTIVE"
                 }
             },
@@ -37,7 +36,7 @@ resource "aws_iot_provisioning_template" "pi_side_smart_home_iot_cert_tmp"{
             policy = {
                 Type = "AWS::IoT::Policy"
                 Properties = {
-                    PolicyName = "smart_home_pi_policy"
+                    PolicyName = "pi_side_iot_cert_issuer_role"
                 }
             }
         }
