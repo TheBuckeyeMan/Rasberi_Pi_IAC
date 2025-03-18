@@ -7,7 +7,7 @@ resource "aws_iam_role" "pi_side_iot_cert_issuer_role"{
     Version = "2012-10-17"
     Statement = [{
       Effect = "Allow"
-      Principal = { Service = "lambda.amazonaws.com" }
+      Principal = { Service = "iot_amazonaws.com" }
       Action = "sts:AssumeRole"
     }]
   })
