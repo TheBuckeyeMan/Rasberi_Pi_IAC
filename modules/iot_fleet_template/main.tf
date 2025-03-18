@@ -19,7 +19,7 @@ resource "aws_iot_provisioning_template" "pi_side_smart_home_iot_cert_tmp"{
             certificate = {
                 Type = "AWS::IoT::Certificate", #Makes the Certificate
                 Properties = {
-                    CertificateId = { Ref = "certificate" }
+                    CertificateId = { Ref = "AWS::IoT::Certificate::Id" }
                     Status = "ACTIVE"
                 }
             },
