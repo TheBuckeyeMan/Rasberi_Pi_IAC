@@ -130,3 +130,4 @@ output "pi_side_lambda_task_1_role_arn"{
 output "pi_side_lambda_task_1_role_name"{
     value = aws_iam_role.pi_side_lambda_task_1_role.name
 }
+
