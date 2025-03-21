@@ -61,3 +61,14 @@ However, a few key things will ensure a smooth setup:
 
 WS2812B LEDs draw a lot of power (e.g., 60 LEDs can need 3A at full brightness).
 If using more than ~30 LEDs, use a separate 5V power adapter for the LED strip instead of powering it from the Raspberry Pi.
+
+
+
+
+
+1. RGB - Need an non-addressable RGB LED strip
+
+2. Power supply - 12 v required
+
+2. Will need a way to controll the r g b pins independently, we can do this via a
+ Solution: Use MOSFETs (N-channel MOSFETs like IRLB8721) to control each color channel.

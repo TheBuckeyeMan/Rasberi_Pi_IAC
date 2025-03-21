@@ -122,9 +122,13 @@ resource "aws_iam_policy" "pi_side_lambda_task_2_policy"{
             Action = [
             "iot:DescribeProvisioningTemplate",
             "iot:CreateProvisioningClaim",
-            "iot:ListProvisioningTemplates"
+            "iot:ListProvisioningTemplates",
+            "iot:CreateThing",
+            "iot:CreateKeysAndCertificate",
+            "iot:AttachThingPrincipal",
+            "iot:AttachPolicy"
             ]
-            Resource = "arn:aws:iot:us-east-2:339712758982:provisioningtemplate/YOUR_TEMPLATE_NAME" #TODO Add required Template Name once Provisioned
+            Resource = "arn:aws:iot:us-east-2:339712758982:provisioningtemplate/pi_side_smart_home_iot_cert_tmp" #TODO Add required Template Name once Provisioned
         },
         {
             Effect = "Allow"
