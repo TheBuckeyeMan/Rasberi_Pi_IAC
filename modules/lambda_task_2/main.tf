@@ -23,6 +23,7 @@ resource "aws_lambda_function" "pi_side_smart_home_task_2_lambda" {
   }
 } 
 
+
 #------Allow API Gateway to invoke lambda----------
 resource "aws_lambda_permission" "pi_side_smart_home_allow_api_gateway"{
     statement_id = "AllowExecutionFromAPIGateway"
