@@ -72,7 +72,7 @@ resource "aws_iam_role_policy_attachment" "pi_side_lambda_task_1_policy_attachme
 }
 
 
-//Role for Task 2 Lambda
+//Role for Task 2 Lambda - Completed
 resource "aws_iam_role" "pi_side_lambda_task_2_role" {
     name = "pi_side_lambda_task_2_role"
     
@@ -104,7 +104,15 @@ resource "aws_iam_policy" "pi_side_lambda_task_2_policy"{
             Action = ["execute-api:Invoke"]
             Resource = "*" # Replace with API Gateway ARN once deployed
         },
-
+        {
+            Effect = "Allow"
+            Action = [
+                "ecr:BatchCheckLayerAvailability",
+                "ecr:GetDownloadUrlForLayer",
+                "ecr:BatchGetImage"
+            ]
+            Resource = "arn:aws:ecr:us-east-2:339712758982:repository/smart-home"
+        },
         # Allow Lambda to read from the DynamoDB table
         {
             Effect = "Allow"
