@@ -141,6 +141,13 @@ resource "aws_iam_policy" "pi_side_lambda_task_2_policy"{
         {
             Effect = "Allow"
             Action = [
+                "iot:DescribeThing"
+            ]
+            Resource = "arn:aws:iot:us-east-2:339712758982:thing/*"
+        },
+        {
+            Effect = "Allow"
+            Action = [
                 "logs:CreateLogGroup",
                 "logs:CreateLogStream",
                 "logs:PutLogEvents"
