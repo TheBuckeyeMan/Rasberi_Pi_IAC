@@ -141,7 +141,12 @@ resource "aws_iam_policy" "pi_side_lambda_task_2_policy"{
         {
             Effect = "Allow"
             Action = [
-                "iot:DescribeThing"
+                "iot:DescribeThing",
+                "iot:CreateThing",
+                "iot:CreateKeysAndCertificate",
+                "iot:AttachPolicy",
+                "iot:AttachThingPrincipal",
+                "iot:DescribeEndpoint"
             ]
             Resource = "arn:aws:iot:us-east-2:339712758982:thing/*"
         },
