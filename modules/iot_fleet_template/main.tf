@@ -1,5 +1,5 @@
 #iot_fleet_template Module
-
+# NOT REWUIRED IF GENERATING CERTS AND THINGS VIA LAMBDA
 
 #Create the Template for the IoT Fleet
 #On trigger, the IoT Fleet will issue a new certificate as well as make a new "Thing" in aws
