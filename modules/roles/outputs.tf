@@ -131,3 +131,14 @@ output "pi_side_lambda_task_1_role_name"{
     value = aws_iam_role.pi_side_lambda_task_1_role.name
 }
 
+output "pi_side_smart_home_thing_policy_id"{
+    value = aws_iot_policy.pi_side_smart_home_thing_policy.id
+}
+
+output "pi_side_smart_home_thing_policy_arn"{
+    value = aws_iot_policy.pi_side_smart_home_thing_policy.arn
+}
+
+output "pi_side_smart_home_thing_policy_name"{
+    value = aws_iot_policy.pi_side_smart_home_thing_policy.name
+}
