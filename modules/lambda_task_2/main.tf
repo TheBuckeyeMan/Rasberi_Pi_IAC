@@ -9,7 +9,8 @@ resource "aws_lambda_function" "pi_side_smart_home_task_2_lambda" {
 
   environment {
     variables = {
-      SERIAL_NUMBER_DYNAMO_DB = var.SERIAL_NUMBER_DYNAMO_DB
+      SERIAL_NUMBER_DYNAMO_DB = var.SERIAL_NUMBER_DYNAMO_DB,
+      IOT_TEMPLATE_NAME = var.IOT_TEMPLATE_NAME
     }
   }
 

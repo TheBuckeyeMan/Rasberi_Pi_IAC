@@ -19,3 +19,8 @@ variable "SERIAL_NUMBER_DYNAMO_DB"{
     description = "The Name of the Serial Number Dynamo DB Table"
     type = string
 }
+
+variable "IOT_TEMPLATE_NAME"{
+    description = "The Name of the Serial Number Dynamo DB Table"
+    type = string
+}
