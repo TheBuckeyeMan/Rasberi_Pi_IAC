@@ -133,7 +133,8 @@ resource "aws_iam_policy" "pi_side_lambda_task_2_policy" {
           "iot:AttachThingPrincipal",
           "iot:AttachPolicy",
           "iot:UpdateCertificate",
-          "iot:DescribeCertificate"
+          "iot:DescribeCertificate",
+          "iot:DescribeThing"
         ]
         Resource = "*"
       },
