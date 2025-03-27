@@ -90,98 +90,66 @@ resource "aws_iam_role" "pi_side_lambda_task_2_role" {
   }
 }
 
-resource "aws_iam_policy" "pi_side_lambda_task_2_policy"{
-    name = "pi_side_lambda_task_2_policy"
-    description = "Allows Lambda to read Serial Numbers to DynamoDB, and give access to IoT Template"
+resource "aws_iam_policy" "pi_side_lambda_task_2_policy" {
+  name        = "pi_side_lambda_task_2_policy"
+  description = "Allows Lambda to read from DynamoDB, interact with IoT Core, and generate certificates"
 
-    policy = jsonencode({
+  policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
-
-        # Allow Lambda to receive traffic from API Gateway
-        {
-            Effect = "Allow"
-            Action = ["execute-api:Invoke"]
-            Resource = "*" # Replace with API Gateway ARN once deployed
-        },
-        {
-            Effect = "Allow"
-            Action = [
-                "ecr:BatchCheckLayerAvailability",
-                "ecr:GetDownloadUrlForLayer",
-                "ecr:BatchGetImage"
-            ]
-            Resource = "arn:aws:ecr:us-east-2:339712758982:repository/smart-home"
-        },
-        # Allow Lambda to read from the DynamoDB table
-        {
-            Effect = "Allow"
-            Action = [
-            "dynamodb:GetItem",
-            "dynamodb:Scan",
-            "dynamodb:Query"
-            ]
-            Resource = "arn:aws:dynamodb:us-east-2:339712758982:table/smart_home_pi_devices_serial_numbers"
-        },
-
-        # Allow Lambda to interact with IoT Core to issue new credentials
-        {
-            Effect = "Allow"
-            Action = [
-            "iot:DescribeProvisioningTemplate",
-            "iot:CreateProvisioningClaim",
-            "iot:ListProvisioningTemplates",
-            "iot:CreateThing",
-            "iot:CreateKeysAndCertificate",
-            "iot:AttachThingPrincipal",
-            "iot:AttachPolicy",
-            "iot:UpdateCertificate",
-            "iot:DescribeCertificate"
-            ]
-            Resource = ["arn:aws:iot:us-east-2:339712758982:provisioningtemplate/pi_side_smart_home_iot_cert_tmp",
-                        "arn:aws:iot:us-east-2:339712758982:thing/*",   
-                        "arn:aws:iot:us-east-2:339712758982:cert/*"
-                        ] #TODO Add required Template Name once Provisioned
-
-        },
-        {
-            Effect = "Allow"
-            Action = [
-                "iot:DescribeProvisioningTemplate",
-                "iot:CreateProvisioningClaim",
-                "iot:ListProvisioningTemplates",
-                "iot:DescribeThing",
-                "iot:CreateThing",
-                "iot:CreateKeysAndCertificate",
-                "iot:AttachPolicy",
-                "iot:AttachThingPrincipal",
-                "iot:DescribeEndpoint",
-                "iot:UpdateCertificate",
-                "iot:DescribeCertificate"
-            ]
-            Resource = [
-            "arn:aws:iot:us-east-2:339712758982:provisioningtemplate/pi_side_smart_home_iot_cert_tmp",
-            "arn:aws:iot:us-east-2:339712758982:thing/*",
-            "arn:aws:iot:us-east-2:339712758982:cert/*"
-            ]
-
-        },
-        {
-            Effect = "Allow"
-            Action = [
-                "logs:CreateLogGroup",
-                "logs:CreateLogStream",
-                "logs:PutLogEvents"
-            ]
-            Resource = "arn:aws:logs:us-east-2:339712758982:*"
-        }
+      {
+        Effect   = "Allow"
+        Action   = [
+          "execute-api:Invoke"
         ]
-    })
-
-    tags = {
-        Name = "pi_side_lambda_task_2_policy"
-    }
+        Resource = "*"
+      },
+      {
+        Effect   = "Allow"
+        Action   = [
+          "ecr:BatchCheckLayerAvailability",
+          "ecr:GetDownloadUrlForLayer",
+          "ecr:BatchGetImage"
+        ]
+        Resource = "arn:aws:ecr:us-east-2:339712758982:repository/smart-home"
+      },
+      {
+        Effect   = "Allow"
+        Action   = [
+          "dynamodb:GetItem",
+          "dynamodb:Scan",
+          "dynamodb:Query"
+        ]
+        Resource = "arn:aws:dynamodb:us-east-2:339712758982:table/smart_home_pi_devices_serial_numbers"
+      },
+      {
+        Effect   = "Allow"
+        Action   = [
+          "iot:DescribeProvisioningTemplate",
+          "iot:CreateProvisioningClaim",
+          "iot:ListProvisioningTemplates",
+          "iot:CreateThing",
+          "iot:CreateKeysAndCertificate",
+          "iot:AttachThingPrincipal",
+          "iot:AttachPolicy",
+          "iot:UpdateCertificate",
+          "iot:DescribeCertificate"
+        ]
+        Resource = "*"
+      },
+      {
+        Effect   = "Allow"
+        Action   = [
+          "logs:CreateLogGroup",
+          "logs:CreateLogStream",
+          "logs:PutLogEvents"
+        ]
+        Resource = "arn:aws:logs:us-east-2:339712758982:*"
+      }
+    ]
+  })
 }
+
 
 resource "aws_iam_role_policy_attachment" "pi_side_lambda_task_2_policy_attachment" {
     role = aws_iam_role.pi_side_lambda_task_2_role.name
