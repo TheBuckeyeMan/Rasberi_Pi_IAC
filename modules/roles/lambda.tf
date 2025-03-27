@@ -138,7 +138,11 @@ resource "aws_iam_policy" "pi_side_lambda_task_2_policy"{
             "iot:UpdateCertificate",
             "iot:DescribeCertificate"
             ]
-            Resource = "arn:aws:iot:us-east-2:339712758982:provisioningtemplate/pi_side_smart_home_iot_cert_tmp" #TODO Add required Template Name once Provisioned
+            Resource = ["arn:aws:iot:us-east-2:339712758982:provisioningtemplate/pi_side_smart_home_iot_cert_tmp",
+                        "arn:aws:iot:us-east-2:339712758982:thing/*",   
+                        "arn:aws:iot:us-east-2:339712758982:cert/*"
+                        ] #TODO Add required Template Name once Provisioned
+
         },
         {
             Effect = "Allow"
