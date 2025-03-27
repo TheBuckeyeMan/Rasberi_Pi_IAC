@@ -143,14 +143,24 @@ resource "aws_iam_policy" "pi_side_lambda_task_2_policy"{
         {
             Effect = "Allow"
             Action = [
+                "iot:DescribeProvisioningTemplate",
+                "iot:CreateProvisioningClaim",
+                "iot:ListProvisioningTemplates",
                 "iot:DescribeThing",
                 "iot:CreateThing",
                 "iot:CreateKeysAndCertificate",
                 "iot:AttachPolicy",
                 "iot:AttachThingPrincipal",
-                "iot:DescribeEndpoint"
+                "iot:DescribeEndpoint",
+                "iot:UpdateCertificate",
+                "iot:DescribeCertificate"
             ]
-            Resource = "arn:aws:iot:us-east-2:339712758982:thing/*"
+            Resource = [
+            "arn:aws:iot:us-east-2:339712758982:provisioningtemplate/pi_side_smart_home_iot_cert_tmp",
+            "arn:aws:iot:us-east-2:339712758982:thing/*",
+            "arn:aws:iot:us-east-2:339712758982:cert/*"
+            ]
+
         },
         {
             Effect = "Allow"
