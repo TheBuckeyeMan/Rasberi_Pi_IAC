@@ -142,3 +142,32 @@ output "pi_side_smart_home_thing_policy_arn"{
 output "pi_side_smart_home_thing_policy_name"{
     value = aws_iot_policy.pi_side_smart_home_thing_policy.name
 }
+
+output "smart_home_cloudwatch_role_name"{
+    value = aws_iam_role.smart_home_cloudwatch_role.name
+}
+
+output "smart_home_cloudwatch_role_arn"{
+    value = aws_iam_role.smart_home_cloudwatch_role.arn
+}
+
+
+output "smart_home_cloudwatch_role_id"{
+    value = aws_iam_role.smart_home_cloudwatch_role.id
+}
+
+output "smart_home_cloudwatch_policy_name"{
+    value = aws_iam_policy.smart_home_cloudwatch_policy.name
+}
+
+output "smart_home_cloudwatch_policy_arn"{
+    value = aws_iam_policy.smart_home_cloudwatch_policy.arn
+}
+
+output "smart_home_cloudwatch_policy_id"{
+    value = aws_iam_policy.smart_home_cloudwatch_policy.id
+}
+
+output "smart_home_cloudwatch_role_policy_attachment_id"{
+    value = aws_iam_role_policy_attachment.smart_home_cloudwatch_role_policy_attachment.id
+}
