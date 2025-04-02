@@ -25,7 +25,7 @@ resource "aws_api_gateway_method_settings" "smart_home_task_2_settings" {
 #Update the cloudwatch IAM Role to alow us to use this api gateway
 resource "aws_iam_role_policy" "add_gateway_log_access" {
   name = "pi_gateway_access_logs"
-  role = module.roles.smart_home_cloudwatch_role_name
+  role = data.aws_iam_role.smart_home_cloudwatch_role.arn
 
   policy = jsonencode({
     Version = "2012-10-17",
