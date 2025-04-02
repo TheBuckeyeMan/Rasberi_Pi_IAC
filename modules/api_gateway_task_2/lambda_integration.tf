@@ -12,7 +12,7 @@ resource "aws_api_gateway_integration" "pi_side_smart_home_task_2_lambda_integra
 
 #------Allow API Gateway to invoke lambda----------
 resource "aws_lambda_permission" "pi_side_smart_home_allow_api_gateway" {
-    statement_id  = "AllowExecutionFromAPIGateway"
+    statement_id  = "AllowExecutionFromAPIGateway_task_2"
     action        = "lambda:InvokeFunction"
     function_name = data.aws_lambda_function.pi_side_smart_home_task_2_lambda.function_name
     principal     = "apigateway.amazonaws.com"
