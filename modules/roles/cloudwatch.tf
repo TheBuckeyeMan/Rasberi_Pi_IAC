@@ -18,10 +18,11 @@ resource "aws_iam_role" "smart_home_cloudwatch_role"{
   }
 }
 
-resource "aws_iam_policy" "smart_home_cloudwatch_policy"{
-    name = "pi_side_smart_home_cloudwatch_policy"
+resource "aws_iam_role_policy" "smart_home_cloudwatch_inline_policy" {
+  name = "pi_side_smart_home_cloudwatch_inline"
+  role = aws_iam_role.smart_home_cloudwatch_role.id
 
-    policy = jsonencode({
+  policy = jsonencode({
     Version = "2012-10-17",
     Statement = [{
       Effect = "Allow",
@@ -33,9 +34,4 @@ resource "aws_iam_policy" "smart_home_cloudwatch_policy"{
       Resource = "*"
     }]
   })
-}
-
-resource "aws_iam_role_policy_attachment" "smart_home_cloudwatch_role_policy_attachment" {
-  role       = aws_iam_role.smart_home_cloudwatch_role.name
-  policy_arn = aws_iam_policy.smart_home_cloudwatch_policy.arn
 }

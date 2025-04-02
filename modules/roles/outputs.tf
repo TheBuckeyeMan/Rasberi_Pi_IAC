@@ -156,18 +156,10 @@ output "smart_home_cloudwatch_role_id"{
     value = aws_iam_role.smart_home_cloudwatch_role.id
 }
 
-output "smart_home_cloudwatch_policy_name"{
-    value = aws_iam_policy.smart_home_cloudwatch_policy.name
+output "smart_home_cloudwatch_role_policy_name"{
+    value = aws_iam_role_policy.smart_home_cloudwatch_inline_policy.name
 }
 
-output "smart_home_cloudwatch_policy_arn"{
-    value = aws_iam_policy.smart_home_cloudwatch_policy.arn
-}
-
-output "smart_home_cloudwatch_policy_id"{
-    value = aws_iam_policy.smart_home_cloudwatch_policy.id
-}
-
-output "smart_home_cloudwatch_role_policy_attachment_id"{
-    value = aws_iam_role_policy_attachment.smart_home_cloudwatch_role_policy_attachment.id
+output "smart_home_cloudwatch_role_policy_id"{
+    value = aws_iam_role_policy.smart_home_cloudwatch_inline_policy.id
 }
