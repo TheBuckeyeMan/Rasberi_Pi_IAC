@@ -3,6 +3,8 @@
 #Attach api gateway account to cloudwatch role
 resource "aws_api_gateway_account" "smart_home_task_2_logging"{
     cloudwatch_role_arn = data.aws_iam_role.smart_home_cloudwatch_role.arn
+
+    depends_on = [ aws_iam_role_policy.add_gateway_log_access ]
 }
 
 #We will add additional configuration to out api gateway stage to enable logging in main.tf
@@ -18,6 +20,25 @@ resource "aws_api_gateway_method_settings" "smart_home_task_2_settings" {
     logging_level        = "INFO"
     data_trace_enabled   = true
   }
+}
+
+#Update the cloudwatch IAM Role to alow us to use this api gateway
+resource "aws_iam_role_policy" "add_gateway_log_access" {
+  name = "pi_gateway_access_logs"
+  role = module.roles.smart_home_cloudwatch_role_name
+
+  policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [{
+      Effect = "Allow",
+      Action = [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      Resource = "arn:aws:logs:us-east-2:339712758982:log-group:/aws/apigateway/pi-side-task-2:*"
+    }]
+  })
 }
 
 
