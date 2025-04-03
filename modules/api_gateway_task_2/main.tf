@@ -29,21 +29,21 @@ resource "aws_api_gateway_stage" "prod" {
   deployment_id = aws_api_gateway_deployment.pi_side_smart_home_task_2_api_gateway_deployment.id
 
 #Required we add the below for cloudwatch integration with api gateway
-  access_log_settings {
-    destination_arn = aws_cloudwatch_log_group.api_gateway_task_2_logs.arn
-    format = jsonencode({
-      requestId      = "$context.requestId"
-      ip             = "$context.identity.sourceIp"
-      caller         = "$context.identity.caller"
-      user           = "$context.identity.user"
-      requestTime    = "$context.requestTime"
-      httpMethod     = "$context.httpMethod"
-      resourcePath   = "$context.resourcePath"
-      status         = "$context.status"
-      protocol       = "$context.protocol"
-      responseLength = "$context.responseLength"
-    })
-  }
+#   access_log_settings {
+#     destination_arn = aws_cloudwatch_log_group.api_gateway_task_2_logs.arn
+#     format = jsonencode({
+#       requestId      = "$context.requestId"
+#       ip             = "$context.identity.sourceIp"
+#       caller         = "$context.identity.caller"
+#       user           = "$context.identity.user"
+#       requestTime    = "$context.requestTime"
+#       httpMethod     = "$context.httpMethod"
+#       resourcePath   = "$context.resourcePath"
+#       status         = "$context.status"
+#       protocol       = "$context.protocol"
+#       responseLength = "$context.responseLength"
+#     })
+#   }
 
   tags = {
     Name = "DeviceRegistrationStageTask2"
