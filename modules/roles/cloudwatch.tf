@@ -31,7 +31,8 @@ resource "aws_iam_role_policy" "smart_home_cloudwatch_inline_policy" {
         "logs:CreateLogStream",
         "logs:PutLogEvents"
       ],
-      Resource = "*"
+      Resource = ["arn:aws:logs:us-east-2:339712758982:log-group:/aws/apigateway/pi-side-task-2:*",
+                "*"]
     }]
   })
 }
