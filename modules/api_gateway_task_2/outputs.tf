@@ -92,14 +92,14 @@ output "smart_home_cloudwatch_role_id" {
     value = data.aws_iam_role.smart_home_cloudwatch_role.id
 }
 
-output "smart_home_api_gateway_Account_task_2_id"{
-    value = aws_api_gateway_account.smart_home_task_2_logging.id
-}
+# output "smart_home_api_gateway_Account_task_2_id"{
+#     value = aws_api_gateway_account.smart_home_task_2_logging.id
+# }
 
-output "smart_home_task_2_settings_id"{
-    value = aws_api_gateway_method_settings.smart_home_task_2_settings.id
-}
+# output "smart_home_task_2_settings_id"{
+#     value = aws_api_gateway_method_settings.smart_home_task_2_settings.id
+# }
 
-output "api_gateway_task_2_log_path"{
-    value = aws_cloudwatch_log_group.api_gateway_task_2_logs.name
-}
+# output "api_gateway_task_2_log_path"{
+#     value = aws_cloudwatch_log_group.api_gateway_task_2_logs.name
+# }
